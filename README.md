@@ -1,36 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Board Frontend
 
-## Getting Started
+A modern and responsive Task Board application built with **Next.js**, **React**, **TypeScript**, **Tailwind CSS**, and **Socket.IO**. This application provides real-time task management with live updates across multiple connected clients.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 📋 View tasks grouped by status
+  - To Do
+  - In Progress
+  - Done
+- ➕ Create new tasks
+- ✏️ Edit existing tasks
+- 🗑️ Delete tasks
+- 🔄 Real-time synchronization using Socket.IO
+- 👥 Live active user count
+- 🟢 Live server connection status
+- 📱 Fully responsive design
+- 🎨 Clean and modern UI
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home PAge](public/images/Home_Page.png)
+
+### Create Task
+
+![Create Task](public/images/Create_Task.png)
+
+### Mobile View
+
+![Mobile View](public/images/Mobile View.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Socket.IO Client
+- Axios
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+│
+├── components/
+│   ├── Board/
+│   │   ├── Board.tsx
+│   │   ├── Column.tsx
+│   │   └── TaskCard.tsx
+│   │
+│   ├── Modal/
+│   │   └── CardModal.tsx
+│   │
+│   └── Navbar.tsx
+│
+├── hooks/
+│   └── useSocket.ts
+│
+├── libs/
+│   └── socket.ts
+│
+├── services/
+│   └── taskServices.ts
+│
+└── types/
+    └── card.ts
+```
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Navigate into the project
+
+```bash
+cd task-board-frontend
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file in the project root.
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+NEXT_PUBLIC_SOCKET_URL=http://localhost:3000
+```
+
+Adjust the URLs if your backend is running on a different host or port.
+
+---
+
+## ▶️ Run the Application
+
+Development mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The application will be available at
 
-## Learn More
+```
+http://localhost:3001
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔌 Backend Requirement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This frontend requires the Task Board Backend server to be running.
 
-## Deploy on Vercel
+Backend should expose:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- REST APIs
+- Socket.IO server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Default Backend URL
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📡 Real-Time Events
+
+The application listens for the following Socket.IO events:
+
+| Event | Description |
+|--------|-------------|
+| task:created | Adds a newly created task |
+| task:updated | Updates an existing task |
+| task:deleted | Removes a deleted task |
+| active-users | Updates connected user count |
+
+---
+
+## 📱 Responsive Design
+
+The application is responsive across:
+
+- Desktop
+- Tablet
+- Mobile
+
+---
+
+## ✨ Future Improvements
+
+- Drag and Drop (dnd-kit)
+- Task Search
+- Filters
+- Authentication
+- User-specific Boards
+- Dark Mode
+- Toast Notifications
+- Optimistic UI Updates
+
+---
+
+## 👨‍💻 Author
+
+**Tilesh Kathiresan**
